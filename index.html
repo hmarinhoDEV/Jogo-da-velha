@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo da Velha Firebase</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1><b>Jogo da Velha</b></h1>
+
+  <div id="tabuleiro" class="tabuleiro">
+    <div class="celula" data-index="0"></div>
+    <div class="celula" data-index="1"></div>
+    <div class="celula" data-index="2"></div>
+    <div class="celula" data-index="3"></div>
+    <div class="celula" data-index="4"></div>
+    <div class="celula" data-index="5"></div>
+    <div class="celula" data-index="6"></div>
+    <div class="celula" data-index="7"></div>
+    <div class="celula" data-index="8"></div>
+  </div>
+
+  <p id="mensagem"></p>
+  <button id="reiniciarBtn">Reiniciar</button>
+
+  <!-- Firebase SDKs (MÓDULO FIREBASE 12+) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDsFPYBFlffk6Ako-pYhXS_D6PBMgJQX84",
+      authDomain: "jogo-da-velha-d9fcc.firebaseapp.com",
+      projectId: "jogo-da-velha-d9fcc",
+      storageBucket: "jogo-da-velha-d9fcc.appspot.com",
+      messagingSenderId: "1017544987640",
+      appId: "1:1017544987640:web:6971886af82c26c08afc0d",
+      measurementId: "G-DVTD290Z3J"
+    };
+
+    // Inicializa Firebase e exporta para o app.js
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Torna acessível para outros scripts
+    window.firebaseDB = db;
+  </script>
+
+  <!-- Seu código principal -->
+  <script type="module" src="app.js"></script>
+
+ <video id="video-vitoria" autoplay loop muted style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+  <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  Seu navegador não suporta vídeo.
+</video>
+
+
+</video>
+
+</body>
+</html>

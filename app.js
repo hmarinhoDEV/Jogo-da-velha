@@ -84,11 +84,18 @@ function verificarVencedor(celulas, mensagem) {
     const jogadorC = celulas[c].getAttribute("data-jogador");
 
     if (jogadorA && jogadorA === jogadorB && jogadorA === jogadorC) {
-     mensagem.textContent = `Vitória do jogador ${jogadorA === "X" ? "⚔️" : "🛡️"}!`;
+      mensagem.textContent = `Vitória do jogador ${jogadorA === "X" ? "⚔️" : "🛡️"}!`;
 
-    
+      // Mostrar o GIF de vitória
+      const gif = document.getElementById("gif-vitoria");
+      gif.style.display = "block";
+
       celulas.forEach(celula => (celula.style.pointerEvents = "none"));
       break;
+    }
+  }
+}
+
     }
   }
 }
